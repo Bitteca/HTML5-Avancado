@@ -33,10 +33,30 @@
 		</style>
     
         <script>        
-            var nav = null; 
+            let nav = null; 
         
 			function pegarPosicao() {
-				document.getElementById("status").innerHTML = "aguarde..."; 
+				document.getElementById("status").innerHTML = "aguarde...";
+
+				if (nav == null) {
+					nav = window.navigator;
+				}
+
+				let geoLoc = nav.geolocation;
+				if (geoLoc != null ) {
+					geoLoc.getCurrentPosition(retornaPosicao, retornaFalha);
+				}
+
+				function retornaPosicao() {
+					let msg = "Achei voce!!!";
+					document.getElementById("status").innerHTML = msg;
+				}
+
+				function retornaFalha() {
+					let msg = "Se escondeu né??";
+					document.getElementById("status").innerHTML = msg;
+				}
+
 			}
 	
         </script>

@@ -49,8 +49,9 @@
 				}
 				
 				var geoloc = nav.geolocation;
+				let config = {"enableHighAccuracy" : true, "timeout" : 5000, "maximumAge" : 10000};
 				if ( geoloc != null ) {
-					geoloc.getCurrentPosition(retornarPosicao, retornarFalha);	
+					geoloc.getCurrentPosition(retornarPosicao, retornarFalha, config);	
 				}
 			}
 			
