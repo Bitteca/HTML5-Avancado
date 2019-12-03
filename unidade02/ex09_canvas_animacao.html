@@ -6,7 +6,27 @@
         
         <script src="cake.js"></script>     
         <script>
-			
+			function desenhar() {
+                let canvas = new Canvas(document.body, 600, 400);
+                let circulo = new Circle(100, {
+                    id:'circulo',
+                    x: canvas.width/2,
+                    y: canvas.height/2,
+                    stroke:'green',
+                    strokeWidth:10,
+                    endAngle:Math.PI*2
+                });
+                
+                circulo.addFrameListener(
+                    function(t, dt) {
+                        this.scale = Math.sin(t/1500);
+                    }
+                )
+
+
+                canvas.append(circulo);
+            }
+            window.onload = desenhar;
 		</script>
     </head>
     

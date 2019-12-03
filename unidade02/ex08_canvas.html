@@ -12,9 +12,16 @@
         
         <script>
 			function desenhar() {
-				var canvas=document.querySelector("#minhaTela");
+				let canvas=document.querySelector("#minhaTela");
 				if ( canvas.getContext ) {
-
+					let linha = canvas.getContext("2d");
+					linha.lineWidth = 5;
+					linha.strokeStyle = "blue";
+					linha.moveTo(100,200);
+					linha.lineTo(170, 100);
+					linha.lineTo(240, 123);
+					linha.lineTo(310, 185);
+					linha.stroke();
 				}
 			}
 			
